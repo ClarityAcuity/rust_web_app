@@ -13,10 +13,26 @@ rustup default nightly
 sudo apt install sqlite3 libsqlite3-0 libsqlite3-dev
 ```
 
+## Schema migration
+
+```shell
+cargo install diesel_cli --no-default-features --features sqlite
+cd backend
+diesel setup
+```
+
+## Add data
+
+```shell
+cargo run -p backend --bin todo new 'input any string'
+```
+
 ## Install wasm toolchain
 
 ```shell
 rustup target add wasm32-unknown-unknown
+sudo apt install libssl-dev pkg-config
+cargo install wasm-pack
 ```
 
 ## Build
@@ -24,20 +40,6 @@ rustup target add wasm32-unknown-unknown
 ```shell
 cargo install cargo-make
 cargo make
-```
-
-## Schema migration
-
-```shell
-cargo install diesel_cli --no-default-features --features sqlite
-cd backend
-diesel migration redo
-```
-
-## Add data
-
-```shell
-cargo run -p backend --bin todo new 'input any string'
 ```
 
 ## Start Backend

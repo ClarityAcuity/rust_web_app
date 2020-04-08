@@ -5,7 +5,7 @@ pub mod schema;
 
 // TODO a better mechanism for setting the path to the database
 pub fn establish_connection() -> SqliteConnection {
-    let db = "./testdb.sqlite3";
+    let db = "./backend/testdb.sqlite3";
     SqliteConnection::establish(db).unwrap_or_else(|_| panic!("Error connecting to {}", db))
 }
 
